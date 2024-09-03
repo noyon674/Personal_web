@@ -1,22 +1,30 @@
 @import '../variable';
 
-@mixin containerBox($topbarHeight){
+@mixin containerBox($topbarHeight, $paddingLeftRight){
     width: 100vw;
     height: calc(100vh - $topbarHeight);
+    padding: 0 $paddingLeftRight;
 }
 
 .app{
     height: 100vh;
 
     .container{
-        @include containerBox(32px);
+        @include containerBox(32px, 50px);
 
         background-color: lightcoral;
         position: relative;
         top: 32px;
+        scroll-behavior: smooth;
+        scroll-snap-type: y mandatory;
+        scrollbar-width: none; //for firefox
+        &::wibkit-scrollbar{
+            display: none;
+        }
 
         > *{
-            @include containerBox(32px)
+            @include containerBox(32px, 0px);
+            scroll-snap-align: start;
 
         }
     }
