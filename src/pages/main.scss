@@ -1,0 +1,23 @@
+@import '../variable';
+
+@mixin containerBox($topbarHeight){
+    width: 100vw;
+    height: calc(100vh - $topbarHeight);
+}
+
+.app{
+    height: 100vh;
+
+    .container{
+        @include containerBox(32px);
+
+        background-color: lightcoral;
+        position: relative;
+        top: 32px;
+
+        > *{
+            @include containerBox(32px)
+
+        }
+    }
+}

@@ -1,4 +1,5 @@
 import React from 'react';
+import './main.scss';
 
 import Intro from '../components/intro/Intro';
 import Portfolios from '../components/portfolio/Portfolio';

@@ -1,6 +1,58 @@
 @import '../../variable';
 
+@mixin displayCenter($alingment){
+    display: flex;
+    justify-content: $alingment;
+    align-items: center;
+}
+
 .topbar{
+    width: 100vw;
+    padding: 7px 50px;
     background-color: $topbarBackgroundColor;
     color: $topbarTextColor;
+    display: grid;
+    grid-template-columns: 15% 70% 15%;
+    position: fixed;
+
+    .logo{
+        a{
+            color: $logoColor;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+    }
+
+    .contact{
+        ul{
+            @include displayCenter(start);
+
+            li{
+                @include displayCenter(center);
+
+                list-style: none;
+                margin: 0 20px;
+                font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                font-size: 13px;
+
+                svg{
+                    margin-right: 7px;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+
+    .social-icon{
+        a{
+            color: $topbarIconColor;
+            padding: 0 7px;
+            display: inline-block;
+            
+            &:last-child{
+                color: $lastIconColor;
+            }
+        }
+    }
 }
